@@ -1,5 +1,7 @@
 # Simple C++ Exercises
 
+<img alt="points bar" align="right" height="36" src="../../blob/status/.github/activity-icons/points-bar.svg" />
+
 In this exercise, learners/lecturers will write simple C++ programs that accept user input and then output responses to the command line. Learners will then test their programs by pushing them to their GitHub repo and checking the output from automated tests.
 
 ## Exercise 1

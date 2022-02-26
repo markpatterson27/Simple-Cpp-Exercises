@@ -20,3 +20,42 @@ jobs:
       - uses: education/autograding@v1
         id: autograding
       #   continue-on-error: true
+
+    outputs:
+      grading-score: ${{ steps.autograding.outputs.Points }}
+
+  # job to build activity status icons and update pages URL
+  update-activity-status:
+    name: Update Activity Statuses
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [grade]
+    steps:
+      # need to checkout whole repo
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      # switch to status branch
+      - run: git checkout status || git checkout -b status
+
+      # make dir for activity status icons
+      - name: make icons dir
+        run: mkdir -p .github/activity-icons
+
+      # create points bar
+      - name: points bar
+        uses: markpatterson27/points-bar@v1
+        with:
+          points: ${{ needs.grade.outputs.grading-score }}
+          path: '.github/activity-icons/points-bar.svg'
+        continue-on-error: true
+
+      # commit and push activity icons if statuses have changed
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add '.github/activity-icons'
+          git commit -m "Add/Update activity icons" || exit 0
+          git push origin status
