@@ -25,7 +25,7 @@
       "setup": "g++ -o Sum Sum.cpp",
       "run": "./Sum",
       "input": "2\n5",
-      "output": "Sum is: 7",
+      "output": "7",
       "comparison": "included",
       "timeout": 2,
       "points": 10
