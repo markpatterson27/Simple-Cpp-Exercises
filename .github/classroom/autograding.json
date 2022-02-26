@@ -1,11 +1,11 @@
 {
   "tests": [
     {
-      "name": "Test 1",
-      "setup": "",
-      "run": "",
+      "name": "Test 1 - Hello World",
+      "setup": "g++ -o HelloWorld HelloWorld.cpp",
+      "run": "./HelloWorld",
       "input": "",
-      "output": "",
+      "output": "Hello World!",
       "comparison": "included",
       "timeout": 2,
       "points": 10
