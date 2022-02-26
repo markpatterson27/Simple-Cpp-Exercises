@@ -1,0 +1,22 @@
+name: GitHub Classroom Workflow
+
+on:
+  push:
+    branches:
+    - '*'
+    - '!status'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  grade:
+    name: Autograding
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      # add id to step so outputs can be referenced
+      - uses: education/autograding@v1
+        id: autograding
+      #   continue-on-error: true
