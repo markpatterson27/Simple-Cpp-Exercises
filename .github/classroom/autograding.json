@@ -19,6 +19,16 @@
       "comparison": "included",
       "timeout": 2,
       "points": 10
+    },
+    {
+      "name": "Test 3 - Sum",
+      "setup": "g++ -o Sum Sum.cpp",
+      "run": "./Sum",
+      "input": "2\n5",
+      "output": "Sum is: 7",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 10
     }
   ]
 }
